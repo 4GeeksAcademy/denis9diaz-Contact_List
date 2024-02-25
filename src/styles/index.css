@@ -1,3 +1,85 @@
-/* 
-    General Styles
-*/
+.contact {
+    max-width: 100%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+}
+
+.add-contact-button-container {
+    grid-column: 1;
+    justify-self: end;
+}
+
+.contact-list {
+    grid-column: 1;
+}
+
+.contact img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.contact .edit-button {
+    margin-right: 5px;
+}
+
+.contact .delete-button {
+    background-color: #ffffff;
+    color: #fff;
+}
+
+.form-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Espacio entre cada elemento */
+    margin-top: 20px;
+}
+
+.input-group p {
+    margin-bottom: 0px;
+    /* Espacio inferior entre el texto y el input */
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.input-group input[type="text"] {
+    border: 1px solid #ccc;
+    /* Borde gris */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    padding: 2px;
+    /* Espacio interno */
+    width: 100%;
+    /* Ancho completo */
+}
+
+.title {
+    text-align: center;
+}
+
+.btn-primary {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.img {
+    border-radius: 50%;
+    max-width: 150px; /* Ajusta este valor según sea necesario */
+    max-height: 150px; /* Ajusta este valor según sea necesario */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
