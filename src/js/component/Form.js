@@ -9,7 +9,7 @@ const Form = ({ contactInfo, setContactInfo }) => {
 
   const Save = () => {
     const newContact = {
-      id: contactInfo.length + 1,
+      id: (contactInfo.length + 1).toString(), 
       title: fullName,
       image: "",
       address: address,

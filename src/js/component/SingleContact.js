@@ -21,7 +21,7 @@ const SingleContact = (props) => {
           </div>
         </div>
         <div className="col-md-2">
-          <Link to={`/contacto/${props.id}`}>
+          <Link to={`/formulario/${props.id}`}>
             <button className="edit-button">
               <i className="fa-solid fa-pencil"></i>
             </button>
