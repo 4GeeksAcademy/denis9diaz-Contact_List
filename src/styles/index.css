@@ -29,11 +29,11 @@
 
 .contact .edit-button {
     margin-right: 5px;
+    background-color: #ffffff;
 }
 
 .contact .delete-button {
     background-color: #ffffff;
-    color: #000000;
 }
 
 .form-body {

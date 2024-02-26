@@ -25,7 +25,6 @@ const Layout = () => {
 					<Routes>
 						<Route path="/contactos" element={<Contact />} />
 						<Route path="/formulario" element={<Form />} />
-						<Route path="/formulario" element={<Form />} />
 						<Route path="/contacto" element={<SingleContact />} />
 						<Route path="/editar/:id" element={<IndividualForm />} />
 

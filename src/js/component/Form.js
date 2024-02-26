@@ -6,11 +6,9 @@ const Form = ({ contactInfo = [], setContactInfo }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [id, setId] = useState("")
 
   const saveContact = () => {
     const newContact = {
-      id: id,
       title: fullName,
       image: "",
       address: address,
@@ -18,8 +16,24 @@ const Form = ({ contactInfo = [], setContactInfo }) => {
       email: email,
     };
 
-    setContactInfo([...contactInfo, newContact]);
-    };
+    const url = "https://playground.4geeks.com/apis/fake/contact/agenda/denis9diaz"
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newContact),
+    })
+    .then(response => response.json())
+      .then((data) => {
+        setContactInfo([...contactInfo, data]);
+        setFullName("");
+        setEmail("");
+        setPhone("");
+        setAddress("");
+      })
+      .catch(err => err)
+  };
 
   return (
     <div className="container form-body">
@@ -66,10 +80,10 @@ const Form = ({ contactInfo = [], setContactInfo }) => {
           onChange={(e) => setAddress(e.target.value)}
         />
       </div>
-      <Link to="/contactos">
-        <button type="button" className="btn btn-primary" onClick={saveContact}>
-          Save
-        </button>
+      <Link to="/contactos" >
+      <button type="button" className="btn btn-primary" onClick={saveContact}>
+        Save
+      </button>
       </Link>
       <Link to="/contactos">
         <p>or get back to contacts</p>

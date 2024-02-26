@@ -13,20 +13,20 @@ const SingleContact = (props) => {
         <div className="col-md-8">
           <div className="contact-body">
             <h5 className="contact-name">{props.title}</h5>
-            <p className="contact-address"><i className="fa-solid fa-location-dot"></i> {props.address}</p>
-            <p className="contact-phone"><i className="fa-solid fa-phone"></i> {props.phone}</p>
+            <p className="contact-address"><i className="fa-solid fa-location-dot ms-2"></i> {props.address}</p>
+            <p className="contact-phone"><i className="fa-solid fa-phone ms-2"></i> {props.phone}</p>
             <p className="contact-email">
-              <small className="text-body-secondary"><i className="fa-solid fa-envelope"></i> {props.email}</small>
+              <small className="text-body-secondary"><i className="fa-solid fa-envelope ms-2"></i> {props.email}</small>
             </p>
           </div>
         </div>
         <div className="col-md-2">
           <Link to={`/editar/${props.id}`}>
-            <button className="edit-button">
+          <button type="button" className="btn btn-light edit-button" onClick={props.onDelete}>
               <i className="fa-solid fa-pencil"></i>
             </button>
           </Link>
-          <button className="delete-button" onClick={props.onDelete}>
+          <button type="button" className="btn btn-light delete-button" onClick={props.onDelete}>
             <i className="fa-solid fa-trash-can"></i>
           </button>
         </div>
