@@ -2,24 +2,31 @@ import React, { useState } from "react";
 import SingleContact from "./SingleContact";
 import { Link } from "react-router-dom";
 
+
 const Contact = () => {
-  const [contactInfo, setContactInfo] = useState([
-    {
-      id: "1",
-      image:
-        "https://www.caritas.org.mx/wp-content/uploads/2019/02/cualidades-persona-humanitaria.jpg",
-      title: "Sofía García",
-      address: "Avenida Circular, 17",
-      phone: "615522356",
-      email: "sofiagarcia@gmail.com",
-    },
-    { id: "", image: "", title: "", address: "", phone: "", email: "" },
-    { id: "", image: "", title: "", address: "", phone: "", email: "" },
-    { id: "", image: "", title: "", address: "", phone: "", email: "" },
-  ]);
+
+const [contactInfo, setContactInfo] = useState([])
+
+const urlContactList = "https://playground.4geeks.com/apis/fake/contact/agenda/denis9diaz"
+
+fetch(urlContactList)
+.then(response => response.json())
+.then(data => {
+  setContactInfo(data)
+})
+.catch(err => err)
+
+const urlDeleteContact = "https://playground.4geeks.com/apis/fake/contact/"
 
   const deleteContact = (id) => {
-    setContactInfo(contactInfo.filter(contact => contact.id !== id));
+    fetch(urlDeleteContact + id, {
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(err => err)
   };
 
   return (

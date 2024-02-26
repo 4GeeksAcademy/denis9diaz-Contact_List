@@ -6,10 +6,11 @@ const Form = ({ contactInfo = [], setContactInfo }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [id, setId] = useState("")
 
   const saveContact = () => {
     const newContact = {
-      id: (contactInfo.length + 1),
+      id: id,
       title: fullName,
       image: "",
       address: address,

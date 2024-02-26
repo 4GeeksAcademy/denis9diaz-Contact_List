@@ -5,6 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import Contact from "./component/Contact";
 import Form from "./component/Form"
 import SingleContact from "./component/SingleContact"
+import IndividualForm from "./component/IndividualForm"
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
@@ -24,8 +25,9 @@ const Layout = () => {
 					<Routes>
 						<Route path="/contactos" element={<Contact />} />
 						<Route path="/formulario" element={<Form />} />
-						<Route path="/formulario/:id" element={<Form />} />
+						<Route path="/formulario" element={<Form />} />
 						<Route path="/contacto" element={<SingleContact />} />
+						<Route path="/editar/:id" element={<IndividualForm />} />
 
 						<Route path="/" element={<Home />} />
 						<Route path="/demo" element={<Demo />} />

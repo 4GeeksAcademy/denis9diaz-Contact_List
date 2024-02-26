@@ -7,7 +7,7 @@ const SingleContact = (props) => {
       <div className="row g-0">
         <div className="col-md-2">
           <div className="contact-image-container">
-            <img src={props.image} className="img" alt="..."/>
+            <img src="https://www.inboundcycle.com/hubfs/layout/v3/img/email/gmail-signatures/team-01/svercheval.jpg" className="img" alt="..."/>
           </div>
         </div>
         <div className="col-md-8">
@@ -21,7 +21,7 @@ const SingleContact = (props) => {
           </div>
         </div>
         <div className="col-md-2">
-          <Link to={`/formulario/${props.id}`}>
+          <Link to={`/editar/${props.id}`}>
             <button className="edit-button">
               <i className="fa-solid fa-pencil"></i>
             </button>
