@@ -3,6 +3,7 @@
     margin: 0 auto;
     border: 1px solid #ccc;
     padding: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .container {
@@ -44,26 +45,20 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    /* Espacio entre cada elemento */
     margin-top: 20px;
 }
 
 .input-group p {
     margin-bottom: 0px;
-    /* Espacio inferior entre el texto y el input */
     margin-top: 10px;
     font-weight: bold;
 }
 
 .input-group input[type="text"] {
     border: 1px solid #ccc;
-    /* Borde gris */
     border-radius: 5px;
-    /* Bordes redondeados */
     padding: 2px;
-    /* Espacio interno */
     width: 100%;
-    /* Ancho completo */
 }
 
 .title {
@@ -77,9 +72,23 @@
 
 .img {
     border-radius: 50%;
-    max-width: 150px; /* Ajusta este valor según sea necesario */
-    max-height: 150px; /* Ajusta este valor según sea necesario */
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.contact .edit-button{
+    margin-right: 50px;
+}
+
+.contact-address,
+.contact-email,
+.contact-phone {
+    color: rgb(110, 110, 110);
+    font-weight: bold;
+}
+
+.contact-name {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
 }

@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import SingleContact from "./SingleContact";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
-  let contactInfo = [
+  const [contactInfo, setContactInfo] = useState([
     {
+      id: "1",
       image:
         "https://www.caritas.org.mx/wp-content/uploads/2019/02/cualidades-persona-humanitaria.jpg",
       title: "Sofía García",
@@ -12,10 +13,14 @@ const Contact = () => {
       phone: "615522356",
       email: "sofiagarcia@gmail.com",
     },
-    { image: "", title: "", address: "", phone: "", email: "" },
-    { image: "", title: "", address: "", phone: "", email: "" },
-    { image: "", title: "", address: "", phone: "", email: "" },
-  ];
+    { id: "", image: "", title: "", address: "", phone: "", email: "" },
+    { id: "", image: "", title: "", address: "", phone: "", email: "" },
+    { id: "", image: "", title: "", address: "", phone: "", email: "" },
+  ]);
+
+  const deleteContact = (id) => {
+    setContactInfo(contactInfo.filter(contact => contact.id !== id));
+  };
 
   return (
     <div className="container">
@@ -29,12 +34,14 @@ const Contact = () => {
       <div className="contact-list">
         {contactInfo.map((contact, index) => (
           <SingleContact
+            id={contact.id}
             key={index}
             image={contact.image}
             title={contact.title}
             address={contact.address}
             phone={contact.phone}
             email={contact.email}
+            onDelete={() => deleteContact(contact.id)}
           />
         ))}
       </div>

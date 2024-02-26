@@ -26,7 +26,7 @@ const SingleContact = (props) => {
               <i className="fa-solid fa-pencil"></i>
             </button>
           </Link>
-          <button className="delete-button">
+          <button className="delete-button" onClick={props.onDelete}>
             <i className="fa-solid fa-trash-can"></i>
           </button>
         </div>
