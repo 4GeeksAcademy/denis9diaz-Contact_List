@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import SingleContact from "./SingleContact";
 import { Link } from "react-router-dom";
 
@@ -34,8 +34,8 @@ const Contact = () => {
       <div className="contact-list">
         {contactInfo.map((contact, index) => (
           <SingleContact
-            id={contact.id}
             key={index}
+            id={contact.id}
             image={contact.image}
             title={contact.title}
             address={contact.address}

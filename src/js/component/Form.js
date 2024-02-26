@@ -17,9 +17,7 @@ const Form = ({ contactInfo = [], setContactInfo }) => {
       email: email,
     };
 
-    console.log("Antes de guardar:", contactInfo);
     setContactInfo([...contactInfo, newContact]);
-    console.log("Después de guardar:", contactInfo);
     };
 
   return (
