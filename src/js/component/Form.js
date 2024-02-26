@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Form = ({ contactInfo, setContactInfo }) => {
+const Form = ({ contactInfo = [], setContactInfo }) => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
-  const Save = () => {
+  const saveContact = () => {
     const newContact = {
-      id: (contactInfo.length + 1).toString(), 
+      id: (contactInfo.length + 1),
       title: fullName,
       image: "",
       address: address,
@@ -17,8 +17,10 @@ const Form = ({ contactInfo, setContactInfo }) => {
       email: email,
     };
 
+    console.log("Antes de guardar:", contactInfo);
     setContactInfo([...contactInfo, newContact]);
-  };
+    console.log("Después de guardar:", contactInfo);
+    };
 
   return (
     <div className="container form-body">
@@ -66,7 +68,7 @@ const Form = ({ contactInfo, setContactInfo }) => {
         />
       </div>
       <Link to="/contactos">
-        <button type="button" className="btn btn-primary" onClick={Save}>
+        <button type="button" className="btn btn-primary" onClick={saveContact}>
           Save
         </button>
       </Link>
