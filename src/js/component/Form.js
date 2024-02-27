@@ -9,7 +9,7 @@ const Form = ({ contactInfo = [], setContactInfo }) => {
 
   const saveContact = () => {
     const newContact = {
-      title: fullName,
+      full_name: fullName,
       image: "",
       address: address,
       phone: phone,
@@ -25,14 +25,14 @@ const Form = ({ contactInfo = [], setContactInfo }) => {
       body: JSON.stringify(newContact),
     })
     .then(response => response.json())
-      .then((data) => {
+    .then((data) => {
         setContactInfo([...contactInfo, data]);
         setFullName("");
         setEmail("");
         setPhone("");
         setAddress("");
-      })
-      .catch(err => err)
+    })
+    .catch(err => err)
   };
 
   return (

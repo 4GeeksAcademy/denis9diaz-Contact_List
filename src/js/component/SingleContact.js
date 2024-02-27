@@ -12,11 +12,11 @@ const SingleContact = (props) => {
         </div>
         <div className="col-md-8">
           <div className="contact-body">
-            <h5 className="contact-name">{props.title}</h5>
-            <p className="contact-address"><i className="fa-solid fa-location-dot ms-2"></i> {props.address}</p>
-            <p className="contact-phone"><i className="fa-solid fa-phone ms-2"></i> {props.phone}</p>
+            <h5 className="contact-name">{props.full_name}</h5>
+            <p className="contact-address"><i className="fa-solid fa-location-dot"></i> {props.address}</p>
+            <p className="contact-phone"><i className="fa-solid fa-phone"></i> {props.phone}</p>
             <p className="contact-email">
-              <small className="text-body-secondary"><i className="fa-solid fa-envelope ms-2"></i> {props.email}</small>
+              <small className="text-body-secondary"><i className="fa-solid fa-envelope"></i> {props.email}</small>
             </p>
           </div>
         </div>

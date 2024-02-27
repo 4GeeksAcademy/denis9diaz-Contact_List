@@ -24,7 +24,7 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
     const saveContact = () => {
         const newContact = {
             id: id,
-            title: fullName,
+            full_name: fullName,
             image: "",
             address: address,
             phone: phone,
@@ -45,7 +45,7 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
                     placeholder="Full name"
                     aria-label="Full name"
                     aria-describedby="basic-addon1"
-                    value="Denis Diaz"
+                    value="María Sánchez"
                     onChange={(e) => setFullName(e.target.value)}
                 />
                 <p>E-mail</p>
@@ -55,7 +55,7 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
                     placeholder="Enter e-mail"
                     aria-label="Enter e-mail"
                     aria-describedby="basic-addon1"
-                    value="deedo@gmail.com"
+                    value="mariasanchez@gmail.com"
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <p>Phone</p>
@@ -65,7 +65,7 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
                     placeholder="Enter phone"
                     aria-label="Enter phone"
                     aria-describedby="basic-addon1"
-                    value="745555656"
+                    value="632 236 544"
                     onChange={(e) => setPhone(e.target.value)}
                 />
                 <p>Address</p>
@@ -75,7 +75,7 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
                     placeholder="Enter address"
                     aria-label="Enter address"
                     aria-describedby="basic-addon1"
-                    value="47568 NW 3ddf4ST, 5555 FL, USA"
+                    value="Calle Jazmín, 23. 28966"
                     onChange={(e) => setAddress(e.target.value)}
                 />
             </div>
