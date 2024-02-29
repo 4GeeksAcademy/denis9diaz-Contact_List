@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SingleContact = (props) => {
   return (
-    <div className="contact mb-3">
+    <div className="container contact mb-3">
       <div className="row g-0">
         <div className="col-md-2">
           <div className="contact-image-container">

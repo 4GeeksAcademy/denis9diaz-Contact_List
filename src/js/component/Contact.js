@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import SingleContact from "./SingleContact";
 import { Link } from "react-router-dom";
 
-
 const Contact = () => {
 
 const [contactInfo, setContactInfo] = useState([])

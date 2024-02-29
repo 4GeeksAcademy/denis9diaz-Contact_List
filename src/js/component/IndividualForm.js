@@ -8,6 +8,7 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
     const [contact, setContact] = useState(null);
+
     const { id } = useParams();
     const url = `https://playground.4geeks.com/apis/fake/contact/${id}`;
 
@@ -20,7 +21,6 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
             .catch(err => err)
     }, [url]);
 
-
     const saveContact = () => {
         const newContact = {
             id: id,
@@ -30,7 +30,6 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
             phone: phone,
             email: email,
         };
-
         setContactInfo([...contactInfo, newContact]);
     };
 
