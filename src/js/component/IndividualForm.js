@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
-const individualForm = ({ contactInfo = [], setContactInfo }) => {
+const IndividualForm = () => {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
-    const [contact, setContact] = useState(null);
+    const [editContact, setEditContact] = useState({});
 
     const { id } = useParams();
     const url = `https://playground.4geeks.com/apis/fake/contact/${id}`;
@@ -16,26 +15,41 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
         fetch(url)
             .then(response => response.json())
             .then((data) => {
-                setContact(data);
+                setEditContact(data);
+                setFullName(data.full_name || "");
+                setEmail(data.email || "");
+                setPhone(data.phone || "");
+                setAddress(data.address || "");
             })
-            .catch(err => err)
+            .catch(error => error);
     }, [url]);
 
     const saveContact = () => {
-        const newContact = {
-            id: id,
+        const updatedContact = {
             full_name: fullName,
             image: "",
             address: address,
             phone: phone,
             email: email,
         };
-        setContactInfo([...contactInfo, newContact]);
+
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedContact),
+        })
+            .then(response => response.json())
+            .then((data) => {
+                setEditContact(data);
+            })
+            .catch(error =>  error);
     };
 
     return (
         <div className="container form-body">
-            <h1 className="title">Add a new contact</h1>
+            <h1 className="title">Edit Contact</h1>
             <div className="input-group">
                 <p>Full name</p>
                 <input
@@ -44,7 +58,7 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
                     placeholder="Full name"
                     aria-label="Full name"
                     aria-describedby="basic-addon1"
-                    value="María Sánchez"
+                    value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                 />
                 <p>E-mail</p>
@@ -54,7 +68,7 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
                     placeholder="Enter e-mail"
                     aria-label="Enter e-mail"
                     aria-describedby="basic-addon1"
-                    value="mariasanchez@gmail.com"
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <p>Phone</p>
@@ -64,7 +78,7 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
                     placeholder="Enter phone"
                     aria-label="Enter phone"
                     aria-describedby="basic-addon1"
-                    value="632 236 544"
+                    value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                 />
                 <p>Address</p>
@@ -74,7 +88,7 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
                     placeholder="Enter address"
                     aria-label="Enter address"
                     aria-describedby="basic-addon1"
-                    value="Calle Jazmín, 23. 28966"
+                    value={address}
                     onChange={(e) => setAddress(e.target.value)}
                 />
             </div>
@@ -90,4 +104,4 @@ const individualForm = ({ contactInfo = [], setContactInfo }) => {
     );
 };
 
-export default individualForm;
+export default IndividualForm;
