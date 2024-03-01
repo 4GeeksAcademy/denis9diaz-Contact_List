@@ -31,6 +31,7 @@ const IndividualForm = () => {
             address: address,
             phone: phone,
             email: email,
+            agenda_slug: "denis9diaz"
         };
 
         fetch(url, {

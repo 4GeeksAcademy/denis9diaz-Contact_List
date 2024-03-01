@@ -1,32 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SingleContact from "./SingleContact";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
+  const [contactInfo, setContactInfo] = useState([]);
 
-const [contactInfo, setContactInfo] = useState([])
+  const urlContactList = "https://playground.4geeks.com/apis/fake/contact/agenda/denis9diaz";
 
-const urlContactList = "https://playground.4geeks.com/apis/fake/contact/agenda/denis9diaz"
+  useEffect(() => {
+    fetch(urlContactList)
+      .then(response => response.json())
+      .then(data => {
+        setContactInfo(data);
+      })
+      .catch(err => console.error(err));
+  }, []); 
 
-fetch(urlContactList)
-.then(response => response.json())
-.then(data => {
-  setContactInfo(data)
-})
-.catch(err => err)
+  const urlDeleteContact = "https://playground.4geeks.com/apis/fake/contact/";
 
-const urlDeleteContact = "https://playground.4geeks.com/apis/fake/contact/"
-
-  const deleteContact = (id) => {
+  useEffect((id) => {
     fetch(urlDeleteContact + id, {
-      method: "DELETE"
+      method: "DELETE",
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-    })
-    .catch(err => err)
-  };
+      .then(response => response.json())
+      .then(() => {
+
+        const updatedContacts = contactInfo.filter(contact => contact.id !== id);
+        setContactInfo(updatedContacts);
+      })
+      .catch(err => console.error(err));
+  }, []);
 
   return (
     <div className="container">
