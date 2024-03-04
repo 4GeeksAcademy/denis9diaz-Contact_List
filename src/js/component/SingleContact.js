@@ -22,7 +22,7 @@ const SingleContact = (props) => {
         </div>
         <div className="col-md-2">
           <Link to={`/editar/${props.id}`}>
-          <button type="button" className="btn btn-light edit-button" onClick={props.onDelete}>
+            <button type="button" className="btn btn-light edit-button" onClick={props.onEdit}>
               <i className="fa-solid fa-pencil"></i>
             </button>
           </Link>

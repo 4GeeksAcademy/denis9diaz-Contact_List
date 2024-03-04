@@ -16,20 +16,21 @@ const Contact = () => {
       .catch(err => console.error(err));
   }, []); 
 
-  const urlDeleteContact = "https://playground.4geeks.com/apis/fake/contact/";
-
-  useEffect((id) => {
-    fetch(urlDeleteContact + id, {
+  const deleteContact = (id) => {
+    fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
       method: "DELETE",
     })
       .then(response => response.json())
       .then(() => {
-
         const updatedContacts = contactInfo.filter(contact => contact.id !== id);
         setContactInfo(updatedContacts);
       })
       .catch(err => console.error(err));
-  }, []);
+  };
+
+  const editContact = (id) => {
+    console.log("Edit contact:", id);
+  };
 
   return (
     <div className="container">
@@ -51,6 +52,7 @@ const Contact = () => {
             phone={contact.phone}
             email={contact.email}
             onDelete={() => deleteContact(contact.id)}
+            onEdit={() => editContact(contact.id)} 
           />
         ))}
       </div>
