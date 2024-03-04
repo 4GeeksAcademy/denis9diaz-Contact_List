@@ -1,5 +1,5 @@
 import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import GoogleContacts from "../../img/GoogleContacts.jpg";
 import "../../styles/home.css";
 
 export const Home = () => (
@@ -8,5 +8,6 @@ export const Home = () => (
 		<p>
 			Proyect by Denis Díaz
 		</p>
+		<img src={GoogleContacts} alt="Google Contacts" />
 	</div>
 );

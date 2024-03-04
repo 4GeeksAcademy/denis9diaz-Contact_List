@@ -11,12 +11,11 @@ const Form = ({ contactInfo = [], setContactInfo }) => {
     const newContact = {
       full_name: fullName,
       email: email,
-      agenda_slug: "denis9diaz", // <= Esto es NECESARIO!!
+      agenda_slug: "denis9diaz", 
       address: address,
       phone: phone,
     };
 
-    // URL correcta para crear un nuevo contacto
     const url = "https://playground.4geeks.com/apis/fake/contact/";
     fetch(url, {
       method: "POST",
@@ -27,15 +26,13 @@ const Form = ({ contactInfo = [], setContactInfo }) => {
     })
     .then(response => response.json())
     .then((data) => {
-        // Actualiza aquí tu manejo de la respuesta y del estado según sea necesario
-        setContactInfo([...contactInfo, data]); // Asegúrate de que esto refleje correctamente el nuevo estado
-        // Limpiar los campos del formulario
+        setContactInfo([...contactInfo, data]); 
         setFullName("");
         setEmail("");
         setPhone("");
         setAddress("");
     })
-    .catch(err => console.error(err)); // Considera manejar el error de manera más efectiva
+    .catch(err => console.error(err));
 };
 
   return (
